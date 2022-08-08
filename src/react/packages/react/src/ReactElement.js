@@ -383,6 +383,8 @@ export function createElement(type, config, children) {
 
   // Children can be more than one argument, and those are transferred onto
   // the newly allocated props object.
+
+// 将子节点添加到 props 的 children 属性上
   const childrenLength = arguments.length - 2;
   if (childrenLength === 1) {
     props.children = children;
@@ -399,7 +401,9 @@ export function createElement(type, config, children) {
     props.children = childArray;
   }
 
-  // Resolve default props
+  // Resolve default 
+  // 如果有 defaultProps，对其遍历并且将用户在标签上未对其手动设置属性添加进 props 中
+  // 此处针对 class 组件类型
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
     for (propName in defaultProps) {

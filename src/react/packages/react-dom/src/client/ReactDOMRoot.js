@@ -132,6 +132,8 @@ function createRootImpl(
       options.hydrationOptions.mutableSources) ||
     null;
   const root = createContainer(container, tag, hydrate, hydrationCallbacks);
+  console.log('root3', root)
+
   markContainerAsRoot(root.current, container);
   const containerNodeType = container.nodeType;
 
@@ -164,7 +166,7 @@ function createRootImpl(
       registerMutableSourceForHydration(root, mutableSource);
     }
   }
-
+  console.log('root2',root)
   return root;
 }
 
